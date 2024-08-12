@@ -55,3 +55,13 @@ Just logout and login.
 sudo pacman -S ruff
 ```
 2. 
+
+# Docker config
+- Install
+`sudo pacman -S docker docker-compose`
+- Enable docker service with socket instead of service, to start the service upon trigger
+`sudo systemctl enable docker.socket`
+- Add user to docker user group to enable sudoless use of docker
+`sudo gpasswd -a gova docker`
+- Enable native overlay diff option to make building images faster: https://wiki.archlinux.org/title/Docker#Enable_native_overlay_diff_engine
+- If rancher-desktop or a similar package possibly replacing docker was installed earlier, or even docker itself, it's wise to remove `~/.docker` folder to avoid incorrect configs.
